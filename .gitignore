@@ -1,0 +1,13 @@
+# Compiled Object files
+*.o
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Core Dumps
+vgcore.*
+
+# Vs Code config
+.vscode
