@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:03 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/17 12:59:47 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/17 13:08:12 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include <iostream>
 
 Bureaucrat::Bureaucrat(void) : _name("default"), _grade(32)
+{
+    std::cout << "Bureaucrat default constructor called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(std::string &name, unsigned int grade) : _name(name), _grade(grade)
 {
     std::cout << "Bureaucrat default constructor called" << std::endl;
 }

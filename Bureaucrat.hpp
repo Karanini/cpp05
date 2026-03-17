@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:57 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/17 12:53:24 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/17 13:07:56 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ public:
     // ---------- Constructors / Destructor ----------
 
     Bureaucrat(void);
-    Bureaucrat(const Bureaucrat& copy);
+    Bureaucrat(std::string &name, unsigned int grade);
+    Bureaucrat(const Bureaucrat &copy);
     ~Bureaucrat(void);
 
     // ---------- Overloading Operators Methods -------
 
-    Bureaucrat& operator=(const Bureaucrat& copy);
+    Bureaucrat& operator=(const Bureaucrat &copy);
 
     // ---------- Getter and Setter Methods ------------
 
