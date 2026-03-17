@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:03 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/16 17:46:12 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/17 12:49:48 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,16 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
         // copy data members here
     }
     return (*this);
+}
+
+std::string Bureaucrat::getName() const
+{
+    return (_name);
+}
+
+unsigned int Bureaucrat::getGrade() const
+{
+    return (_grade);
 }
 
 /*

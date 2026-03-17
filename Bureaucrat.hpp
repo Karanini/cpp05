@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:57 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/16 17:57:05 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/17 12:47:47 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ public:
 
     // ---------- Getter and Setter Methods ------------
 
-    Bureaucrat getName() const;
-    Bureaucrat getGrade() const;
+    std::string getName() const;
+    unsigned int getGrade() const;
 
     // ---------- Member Methods -----------------------
 
@@ -39,6 +39,8 @@ protected:
 
 private:
     // ---------- Private Data members -------------------------
+    std::string const   _name;
+    unsigned int        _grade;
 };
 
 // operator << overload
