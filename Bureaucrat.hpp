@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:57 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/17 12:47:47 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/17 12:53:24 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ public:
     unsigned int getGrade() const;
 
     // ---------- Member Methods -----------------------
+
+    void incrementGrade();
+    void decrementGrade();
 
 protected:
     // ---------- Protected Data Members ---------------------

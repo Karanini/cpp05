@@ -6,22 +6,21 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:03 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/17 12:49:48 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/17 12:59:47 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat(void) : _name("default"), _grade(32)
 {
     std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy)
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name), _grade(copy._grade)
 {
     std::cout << "Bureaucrat copy constructor called" << std::endl;
-    *this = copy;
 }
 
 Bureaucrat::~Bureaucrat(void)
@@ -33,7 +32,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 {
     std::cout << "Bureaucrat assignment operator called" << std::endl;
     if (this != &copy) {
-        // copy data members here
+        this->_grade = copy._grade;
     }
     return (*this);
 }
@@ -62,7 +61,6 @@ In general, the `operator<<()` function takes two arguments:
 */
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &b)
 {
-	// output << i.toFloat();
     output << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
 	return (output);
 }
