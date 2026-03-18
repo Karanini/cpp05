@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:34:52 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/18 15:42:22 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/18 15:48:54 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@ int main(void)
 {
     try
     {
-        Bureaucrat Wilfrid = Bureaucrat("Wilfrid", 160);
+        Bureaucrat Mark = Bureaucrat("Mark Scout", 160);
+        Bureaucrat Amanda = Bureaucrat("Amanda", 160);
+
     }
     catch (Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << "main catched a GradeTooLowException" << std::endl;
+        std::cout << e.what() << std::endl;
     }
     catch (Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << "main catched a GradeTooHighException" << std::endl;
+        std::cout << e.what() << std::endl;
     }
     return (0);
 }
