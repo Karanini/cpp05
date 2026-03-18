@@ -2,9 +2,7 @@
 *.o
 
 # Executables
-*.exe
-*.out
-*.app
+bureaucrat
 
 # Core Dumps
 vgcore.*

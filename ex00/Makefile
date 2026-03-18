@@ -3,29 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bkaras-g <bkaras-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/16 14:08:56 by bkaras-g          #+#    #+#              #
-#    Updated: 2026/02/17 13:16:08 by bkaras-g         ###   ########.fr        #
+#    Updated: 2026/03/18 15:45:42 by michel_32        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .SILENT:
 
-NAME = metamorph.exe
+NAME = bureaucrat
 
-SRC = Animal.cpp \
-		Dog.cpp \
-		Cat.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
+SRC = Bureaucrat.cpp \
 		main.cpp
 
-HEADERS = Animal.hpp \
-			Dog.hpp \
-			Cat.hpp \
-			WrongAnimal.hpp \
-			WrongCat.hpp \
+HEADERS = Bureaucrat.hpp
 
 RM = rm -f
 OBJ := $(patsubst %.cpp, %.o, $(SRC))
