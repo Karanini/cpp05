@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:03 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/17 13:08:12 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/18 11:56:34 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,15 @@ Bureaucrat::Bureaucrat(void) : _name("default"), _grade(32)
     std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string &name, unsigned int grade) : _name(name), _grade(grade)
+//ok to init name before exception checks for grade ? Or better to do it after ?
+Bureaucrat::Bureaucrat(std::string &name, unsigned int grade) : _name(name)
 {
     std::cout << "Bureaucrat default constructor called" << std::endl;
+    if (grade < 1)
+        throw Bureaucrat::GradeTooHighException;
+    if (grade > 150)
+        throw Bureaucrat::GradeTooLowException;
+    this->_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name), _grade(copy._grade)
@@ -50,6 +56,20 @@ std::string Bureaucrat::getName() const
 unsigned int Bureaucrat::getGrade() const
 {
     return (_grade);
+}
+
+void Bureaucrat::incrementGrade()
+{
+    if (this->getGrade() == 1)
+        throw Bureaucrat::GradeTooHighException;
+    this->_grade--;
+}
+
+void Bureaucrat::decrementGrade()
+{
+    if (this->getGrade() == 150)
+        throw Bureaucrat::GradeTooLowException;
+    this->_grade++;
 }
 
 /*
