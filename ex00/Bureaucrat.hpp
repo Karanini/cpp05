@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:57 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/17 13:07:56 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/18 15:37:22 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ public:
     // ---------- Constructors / Destructor ----------
 
     Bureaucrat(void);
-    Bureaucrat(std::string &name, unsigned int grade);
+    Bureaucrat(std::string name, unsigned int grade);
     Bureaucrat(const Bureaucrat &copy);
     ~Bureaucrat(void);
 
@@ -37,6 +37,18 @@ public:
 
     void incrementGrade();
     void decrementGrade();
+
+    // ---------- Exception classes -----------------------
+
+    class GradeTooHighException : public std::exception {
+        public:
+            virtual const char* what() const throw();
+    };
+
+    class GradeTooLowException : public std::exception {
+        public:
+            virtual const char* what() const throw();
+    };
 
 protected:
     // ---------- Protected Data Members ---------------------

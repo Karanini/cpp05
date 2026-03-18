@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:03 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/18 11:56:34 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/18 15:37:18 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ Bureaucrat::Bureaucrat(void) : _name("default"), _grade(32)
 }
 
 //ok to init name before exception checks for grade ? Or better to do it after ?
-Bureaucrat::Bureaucrat(std::string &name, unsigned int grade) : _name(name)
+Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
 {
     std::cout << "Bureaucrat default constructor called" << std::endl;
     if (grade < 1)
-        throw Bureaucrat::GradeTooHighException;
+        throw Bureaucrat::GradeTooHighException();
     if (grade > 150)
-        throw Bureaucrat::GradeTooLowException;
+        throw Bureaucrat::GradeTooLowException();
     this->_grade = grade;
 }
 
@@ -61,15 +61,25 @@ unsigned int Bureaucrat::getGrade() const
 void Bureaucrat::incrementGrade()
 {
     if (this->getGrade() == 1)
-        throw Bureaucrat::GradeTooHighException;
+        throw Bureaucrat::GradeTooHighException();
     this->_grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
     if (this->getGrade() == 150)
-        throw Bureaucrat::GradeTooLowException;
+        throw Bureaucrat::GradeTooLowException();
     this->_grade++;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return ("Grade too high exception!");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return ("Grade too low exception!");
 }
 
 /*
