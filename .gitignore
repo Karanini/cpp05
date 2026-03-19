@@ -3,6 +3,7 @@
 
 # Executables
 bureaucrat
+bureaucrat_signing_forms
 
 # Core Dumps
 vgcore.*
