@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:21 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/19 13:10:23 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/19 13:11:52 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,8 @@ private:
     const unsigned int  _gradeToSign;
     const unsigned int  _gradeToExecute;
 };
+
+// operator << overload
+std::ostream &operator<<(std::ostream &output, Form const &f);
 
 #endif // FORM_HPP

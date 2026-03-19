@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:13 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/19 13:10:21 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/19 13:14:03 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,13 @@ unsigned int Form::getGradeToSign(void) const
 unsigned int Form::getGradeToExecute(void) const
 {
     return (this->_gradeToExecute);
+}
+
+std::ostream &operator<<(std::ostream &output, Form const &f)
+{
+    output << "Form name: " << f.getName() << "\n"
+           << "Signed: " << (f.getSigned() ? "yes" : "no") << "\n"
+           << "Grade to sign: " << f.getGradeToSign() << "\n"
+           << "Grade to execute: " << f.getGradeToExecute();
+    return (output);
 }
