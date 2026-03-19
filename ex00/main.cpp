@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:34:52 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/19 12:04:03 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/19 12:08:45 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,7 @@ int main(void)
         PoubelleDuParc.decrementGrade();
 
     }
-    catch (Bureaucrat::GradeTooLowException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    catch (Bureaucrat::GradeTooHighException &e)
+    catch (std::exception &e)
     {
         std::cout << e.what() << std::endl;
     }
