@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:21 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/19 12:45:27 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/19 13:10:23 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ public:
     Form& operator=(const Form& copy);
 
     // ---------- Getter and Setter Methods ------------
+
+    std::string  getName(void) const;
+    bool         getSigned(void) const;
+    unsigned int getGradeToSign(void) const;
+    unsigned int getGradeToExecute(void) const;
 
     // ---------- Member Methods -----------------------
 

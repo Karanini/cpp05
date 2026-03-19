@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:13 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/19 13:07:32 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/19 13:10:21 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,24 @@ Form& Form::operator=(const Form& copy)
         this->_signed = copy._signed;
     }
     return (*this);
+}
+
+std::string  Form::getName(void) const
+{
+    return (this->_name);
+}
+
+bool         Form::getSigned(void) const
+{
+    return (this->_signed);
+}
+
+unsigned int Form::getGradeToSign(void) const
+{
+    return (this->_gradeToSign);
+}
+
+unsigned int Form::getGradeToExecute(void) const
+{
+    return (this->_gradeToExecute);
 }
