@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 12:23:13 by michel_32         #+#    #+#             */
+/*   Updated: 2026/03/19 12:40:09 by michel_32        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Form.hpp"
+#include <iostream>
+
+Form::Form(void) : _name("default"), _signed(false), _gradeToSign(32), _gradeToExecute(32)
+{
+    std::cout << "Form default constructor called" << std::endl;
+}
+
+Form::Form(const Form& copy) : _name(copy._name), _signed(copy._signed), _gradeToSign(copy._gradeToSign), 
+    _gradeToExecute(copy._gradeToExecute)
+{
+    std::cout << "Form copy constructor called" << std::endl;
+}
+
+Form::~Form(void)
+{
+    std::cout << "Form destructor called" << std::endl;
+}
+
+/*
+Copying only the `_signed` state as other attributes are `const` 
+*/
+Form& Form::operator=(const Form& copy)
+{
+    std::cout << "Form assignment operator called" << std::endl;
+    if (this != &copy) {
+        this->_signed = copy._signed;
+    }
+    return (*this);
+}
