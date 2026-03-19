@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:13 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/19 12:40:09 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/19 13:07:32 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@ Form::Form(void) : _name("default"), _signed(false), _gradeToSign(32), _gradeToE
 {
     std::cout << "Form default constructor called" << std::endl;
 }
+
+Form::Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute) 
+    : _name(name), 
+      _signed(false),
+      _gradeToSign(gradeToSign < 1 ? throw Form::GradeTooHighException() : 
+                   gradeToSign > 150 ? throw Form::GradeTooLowException() : gradeToSign),
+      _gradeToExecute(gradeToExecute < 1 ? throw Form::GradeTooHighException() : 
+                      gradeToExecute > 150 ? throw Form::GradeTooLowException() : gradeToExecute)
+{
+    std::cout << "Form parameterized constructor called" << std::endl;
+}
+
 
 Form::Form(const Form& copy) : _name(copy._name), _signed(copy._signed), _gradeToSign(copy._gradeToSign), 
     _gradeToExecute(copy._gradeToExecute)
