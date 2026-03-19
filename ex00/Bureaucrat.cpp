@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:03 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/18 15:37:18 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/19 11:50:41 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ Bureaucrat::Bureaucrat(void) : _name("default"), _grade(32)
     std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-//ok to init name before exception checks for grade ? Or better to do it after ?
+//good practice to use init list for `_name` even if exception check afterwards. 
+//more efficient
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
 {
-    std::cout << "Bureaucrat default constructor called" << std::endl;
+    std::cout << "Bureaucrat parameterized constructor called" << std::endl;
     if (grade < 1)
         throw Bureaucrat::GradeTooHighException();
     if (grade > 150)
