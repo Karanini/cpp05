@@ -6,11 +6,12 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:03 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/19 11:50:41 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/22 14:45:54 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 Bureaucrat::Bureaucrat(void) : _name("default"), _grade(32)
@@ -71,6 +72,19 @@ void Bureaucrat::decrementGrade()
     if (this->getGrade() == 150)
         throw Bureaucrat::GradeTooLowException();
     this->_grade++;
+}
+
+void Bureaucrat::signForm(Form &LaissezPassezRoseA32)
+{
+    try
+    {
+        LaissezPassezRoseA32.beSigned(*this);
+        std::cout << this->getName() << " signed " << LaissezPassezRoseA32.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->getName() << " couldn't sign " << LaissezPassezRoseA32.getName() << "because " << e.what() << "." << std::endl;
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
