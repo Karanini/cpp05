@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:21 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/19 13:11:52 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/22 14:31:52 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FORM_HPP
 
 #include <string>
+#include "Bureaucrat.hpp"
 
 class Form {
 public:
@@ -34,6 +35,7 @@ public:
     bool         getSigned(void) const;
     unsigned int getGradeToSign(void) const;
     unsigned int getGradeToExecute(void) const;
+    void         beSigned(Bureaucrat &Otis);
 
     // ---------- Member Methods -----------------------
 

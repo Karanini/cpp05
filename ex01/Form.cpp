@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:13 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/19 13:14:03 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/22 14:32:23 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,14 @@ unsigned int Form::getGradeToSign(void) const
 unsigned int Form::getGradeToExecute(void) const
 {
     return (this->_gradeToExecute);
+}
+
+void    Form::beSigned(Bureaucrat &Otis)
+{
+    if (Otis.getGrade() <= this->getGradeToSign())
+        this->_signed = true;
+    else
+        throw Form::GradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream &output, Form const &f)
