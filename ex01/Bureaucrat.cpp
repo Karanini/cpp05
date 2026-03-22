@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:03 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/22 14:45:54 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/22 14:56:58 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void Bureaucrat::signForm(Form &LaissezPassezRoseA32)
     }
     catch(const std::exception& e)
     {
-        std::cout << this->getName() << " couldn't sign " << LaissezPassezRoseA32.getName() << "because " << e.what() << "." << std::endl;
+        std::cout << this->getName() << " couldn't sign " << LaissezPassezRoseA32.getName() << " because " << e.what() << "." << std::endl;
     }
 }
 

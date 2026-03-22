@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:13 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/22 14:32:23 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/22 14:58:16 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,16 @@ void    Form::beSigned(Bureaucrat &Otis)
         this->_signed = true;
     else
         throw Form::GradeTooLowException();
+}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+    return ("Bureaucrat's grade too high exception!");
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+    return ("Bureaucrat's grade too low exception!");
 }
 
 std::ostream &operator<<(std::ostream &output, Form const &f)

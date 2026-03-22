@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:57 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/22 14:37:25 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/22 14:53:02 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define BUREAUCRAT_HPP
 
 #include <string>
+#include <iostream>
+
+class Form;
 
 class Bureaucrat {
 public:
