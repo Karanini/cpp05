@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:21:34 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 15:03:00 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 15:22:03 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,9 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
         this->AForm::operator=(copy);
     }
     return (*this);
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+    
 }

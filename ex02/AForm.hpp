@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:21 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 15:19:40 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 15:29:52 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ public:
 
     // ---------- Getter and Setter Methods ------------
 
-    std::string  getName(void) const;
+    virtual std::string  getName(void) const = 0;
     bool         getSigned(void) const;
     unsigned int getGradeToSign(void) const;
     unsigned int getGradeToExecute(void) const;
 
     // ---------- Member Methods -----------------------
 
-    virtual void         execute(Bureaucrat const & executor) const = 0;
+    void         execute(Bureaucrat const & executor) const;
     void         beSigned(Bureaucrat &Otis);
 
     // ---------- Exception classes -----------------------
@@ -49,6 +49,11 @@ public:
     };
 
     class GradeTooLowException : public std::exception {
+        public:
+            virtual const char* what() const throw();
+    };
+
+    class FormNotSignedException : public std::exception {
         public:
             virtual const char* what() const throw();
     };

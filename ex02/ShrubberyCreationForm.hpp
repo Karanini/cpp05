@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:21:47 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 15:03:33 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 15:25:11 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
     // ---------- Getter and Setter Methods ------------
 
     // ---------- Member Methods -----------------------
+    void         execute(Bureaucrat const & executor) const;
 
 protected:
     // ---------- Protected Data Members ---------------------
