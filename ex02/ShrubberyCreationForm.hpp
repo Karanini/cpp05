@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:21:47 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 14:21:57 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 14:37:50 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include <string>
+#include "AForm.hpp"
 
-class ShrubberyCreationForm {
+class ShrubberyCreationForm : public AForm {
 public:
     // ---------- Constructors / Destructor ----------
 
     ShrubberyCreationForm(void);
+    ShrubberyCreationForm(std::string name);
     ShrubberyCreationForm(const ShrubberyCreationForm& copy);
     ~ShrubberyCreationForm(void);
 
