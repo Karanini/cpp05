@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:21:47 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 14:37:50 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 15:03:33 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
     // ---------- Constructors / Destructor ----------
 
     ShrubberyCreationForm(void);
-    ShrubberyCreationForm(std::string name);
+    ShrubberyCreationForm(std::string target);
     ShrubberyCreationForm(const ShrubberyCreationForm& copy);
     ~ShrubberyCreationForm(void);
 
@@ -38,6 +38,7 @@ protected:
 
 private:
     // ---------- Private Data members -------------------------
+    std::string _target;
 };
 
 #endif // SHRUBBERYCREATIONFORM_HPP

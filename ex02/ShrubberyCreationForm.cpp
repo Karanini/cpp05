@@ -6,20 +6,20 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:21:34 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 14:54:34 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 15:03:00 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("default", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery Creation", 145, 137), _target("default")
 {
     std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name) 
-    : AForm(name, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) 
+    : AForm("Shrubbery Creation", 145, 137), _target(target)
 {
     std::cout << "AForm parameterized constructor called" << std::endl;
 }
