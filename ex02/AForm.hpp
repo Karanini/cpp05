@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:21 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 14:22:33 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 15:19:40 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
     AForm(void);
     AForm(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
     AForm(const AForm& copy);
-    ~AForm(void);
+    virtual ~AForm(void);
 
     // ---------- Overloading Operators Methods -------
 
@@ -31,13 +31,15 @@ public:
 
     // ---------- Getter and Setter Methods ------------
 
-    virtual std::string  getName(void) const = 0;
+    std::string  getName(void) const;
     bool         getSigned(void) const;
     unsigned int getGradeToSign(void) const;
     unsigned int getGradeToExecute(void) const;
-    void         beSigned(Bureaucrat &Otis);
 
     // ---------- Member Methods -----------------------
+
+    virtual void         execute(Bureaucrat const & executor) const = 0;
+    void         beSigned(Bureaucrat &Otis);
 
     // ---------- Exception classes -----------------------
 
