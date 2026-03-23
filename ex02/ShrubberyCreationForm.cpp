@@ -6,12 +6,13 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:21:34 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 15:22:03 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 17:36:20 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery Creation", 145, 137), _target("default")
 {
@@ -47,7 +48,25 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return (*this);
 }
 
+const char* ShrubberyCreationForm::FileOpeningException::what() const throw()
+{
+    return "ShrubberyCreationForm: Error opening or creating file.";
+}
+
+/*
+Creates a file <target>_shrubbery in the working directory and writes ASCII trees
+inside it.
+*/
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    
+    this->AForm::execute(executor);
+
+	std::string		filename = this->_target + "_shrubbery";
+	std::ofstream	ofs(filename.c_str());
+	if (!ofs.is_open())
+        throw FileOpeningException();
+	else
+	{
+		std::cout << "I will now draw a nice ASCII tree :)" << std::endl;
+	}    
 }

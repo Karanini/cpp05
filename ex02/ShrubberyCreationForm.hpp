@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:21:47 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 15:25:11 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 17:33:05 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ public:
 
     // ---------- Member Methods -----------------------
     void         execute(Bureaucrat const & executor) const;
+
+    // ---------- Exception classes -----------------------
+
+    class FileOpeningException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+};
 
 protected:
     // ---------- Protected Data Members ---------------------
