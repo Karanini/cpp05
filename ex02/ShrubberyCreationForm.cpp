@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:21:34 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 17:36:20 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/23 17:49:00 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,27 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     this->AForm::execute(executor);
 
-	std::string		filename = this->_target + "_shrubbery";
-	std::ofstream	ofs(filename.c_str());
-	if (!ofs.is_open())
+    std::string     filename = this->_target + "_shrubbery";
+    std::ofstream   ofs(filename.c_str());
+    if (!ofs.is_open())
         throw FileOpeningException();
-	else
-	{
-		std::cout << "I will now draw a nice ASCII tree :)" << std::endl;
-	}    
+
+    ofs << "          *          " << std::endl;
+    ofs << "         / \\         " << std::endl;
+    ofs << "        / 3 \\        " << std::endl;
+    ofs << "       /  2  \\       " << std::endl;
+    ofs << "      /   *   \\      " << std::endl;
+    ofs << "     / 1     0 \\     " << std::endl;
+    ofs << "    /    *      \\    " << std::endl;
+    ofs << "   /  4     5    \\   " << std::endl;
+    ofs << "  /      *        \\  " << std::endl;
+    ofs << " /  6        7     \\ " << std::endl;
+    ofs << "/________*__________\\" << std::endl;
+    ofs << "        |   |        " << std::endl;
+    ofs << "        |___|        " << std::endl;
+    ofs << std::endl;
+    ofs << "   Merry 32 Christmas!  " << std::endl;
+    
+    ofs.close();
+    std::cout << "Shrubbery created in " << filename << std::endl;
 }
