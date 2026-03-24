@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 15:34:21 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 16:47:52 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 16:59:56 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Intern &Intern::operator=(const Intern &copy)
 	(void)copy;
 	return (*this);
 }
-form_code	hashit(std::string const &name)
+form_code	Intern::hashit(std::string const &name)
 {
 	if (name == "shrubbery creation")
 		return (eShrubbery);
@@ -51,7 +51,7 @@ form_code	hashit(std::string const &name)
 
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-	AForm	*form;
+	AForm	*form = NULL;
 
 	switch (hashit(name))
 	{
@@ -59,25 +59,22 @@ AForm *Intern::makeForm(std::string name, std::string target)
         {
             form = new ShrubberyCreationForm(target);
             std::cout << "Intern creates " << form->getName() << std::endl;
-            return (form);
+            break;
         }
         case eRobotomy:
         {
             form = new RobotomyRequestForm(target);
             std::cout << "Intern creates " << form->getName() << std::endl;
-            return (form);
+            break;
         }
         case ePardon:
         {
             form = new PresidentialPardonForm(target);
             std::cout << "Intern creates " << form->getName() << std::endl;
-            return (form);
+            break;
         }
         case eUndefined:
-        {
             std::cout << "Form name does not exist. Read the F*ck*ng 3200 pages bureaucracy manual it's not that complicated!" << std::endl;
-            return (NULL);
-        }
 	}
-    return (NULL);
+    return (form);
 }

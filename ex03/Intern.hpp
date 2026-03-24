@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 15:34:31 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 16:45:02 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 16:57:46 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ protected:
 
 private:
     // ---------- Private Data members -------------------------
+    static form_code hashit(std::string const &name);
 };
-
-form_code hashit(std::string const &name);
 
 #endif // INTERN_HPP
