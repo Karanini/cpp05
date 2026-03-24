@@ -25,6 +25,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy)
+    : AForm(copy)
 {
     std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
     *this = copy;

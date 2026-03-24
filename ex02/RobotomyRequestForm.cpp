@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 15:00:00 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 13:16:43 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 13:18:39 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& copy)
+    : AForm(copy)
 {
     std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
     *this = copy;
