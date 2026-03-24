@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:21:34 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 10:59:52 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 11:01:21 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery Creation",
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) 
     : AForm("Shrubbery Creation", 145, 137), _target(target)
 {
-    std::cout << "AForm parameterized constructor called" << std::endl;
+    std::cout << "ShrubberyCreationForm parameterized constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy)
