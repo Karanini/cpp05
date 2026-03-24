@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:34:52 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 10:56:11 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 12:51:16 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,25 @@ int main(void)
 
         printHeader("Sign Shrubbery with Intern (Should fail sign grade 145)");
         shrub.beSigned(intern);
+    }
+    catch (std::exception &e) {
+        std::cerr << "Exception catch in main: " << e.what() << std::endl;
+    }
+    std::cout << "\n";
+    try {
+        Bureaucrat boss("Boss", 1);
+        Bureaucrat intern("Intern", 148);
+        ShrubberyCreationForm shrub("garden");
         
         printHeader("Sign Shrubbery with Boss (Should succeed)");
         shrub.beSigned(boss);
         std::cout << shrub << std::endl;
 
-        printHeader("Execute Shrubbery with Intern (Should fail exec grade 137)");
-        shrub.execute(intern);
-
         printHeader("Execute Shrubbery with Boss (Should succeed)");
         shrub.execute(boss);
+
+        printHeader("Execute Shrubbery with Intern (Should fail exec grade 137)");
+        shrub.execute(intern);
 
     } catch (std::exception &e) {
         std::cerr << "Exception catch in main: " << e.what() << std::endl;
