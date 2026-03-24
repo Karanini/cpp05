@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:57 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 14:22:33 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 12:56:14 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ public:
     void incrementGrade();
     void decrementGrade();
     void signForm(AForm &LaissezPassezRoseA32);
+    void executeForm(AForm const & form) const;
 
     // ---------- Exception classes -----------------------
 

@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:40:03 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 14:22:33 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 13:00:05 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,20 @@ void Bureaucrat::signForm(AForm &LaissezPassezRoseA32)
         std::cout << this->getName() << " couldn't sign " << LaissezPassezRoseA32.getName() << " because " << e.what() << "." << std::endl;
     }
 }
+
+void Bureaucrat::executeForm(AForm const & DemandeDeTitreDeSéjour) const
+{
+    try
+    {
+        DemandeDeTitreDeSéjour.execute(*this);
+        std::cout << this->getName() << " executed " << DemandeDeTitreDeSéjour.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->getName() << " couldn't execute " << DemandeDeTitreDeSéjour.getName() << " because " << e.what() << "." << std::endl;
+    }
+}
+
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
