@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:13 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 15:30:25 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 15:10:51 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,11 @@ unsigned int AForm::getGradeToExecute(void) const
 void    AForm::beSigned(Bureaucrat &Otis)
 {
     if (Otis.getGrade() <= this->getGradeToSign())
+    {
+        if (this->_signed == true)
+            throw AForm::FormAlreadySignedException();
         this->_signed = true;
+    }
     else
         throw AForm::GradeTooLowException();
 }
@@ -102,6 +106,11 @@ const char* AForm::GradeTooLowException::what() const throw()
 const char* AForm::FormNotSignedException::what() const throw()
 {
     return ("Form not signed exception!");
+}
+
+const char* AForm::FormAlreadySignedException::what() const throw()
+{
+    return ("Form already signed exception!");
 }
 
 std::ostream &operator<<(std::ostream &output, AForm const &f)

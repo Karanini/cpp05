@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:23:21 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/23 17:57:09 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 15:10:29 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ public:
     };
 
     class FormNotSignedException : public std::exception {
+        public:
+            virtual const char* what() const throw();
+    };
+    
+    class FormAlreadySignedException : public std::exception {
         public:
             virtual const char* what() const throw();
     };
