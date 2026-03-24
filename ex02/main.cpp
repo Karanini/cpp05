@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:34:52 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 13:20:54 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 13:37:33 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int main(void)
         printHeader("ShrubberyCreationForm Tests");
         
         try {
+            printHeader("Sign Shrubbery with Intern (Should fail sign grade 145)");
             Bureaucrat boss("Boss", 1);
             Bureaucrat intern("Intern", 148);
             ShrubberyCreationForm shrub("garden");
 
             std::cout << shrub << std::endl;
 
-            printHeader("Sign Shrubbery with Intern (Should fail sign grade 145)");
             shrub.beSigned(intern);
         }
         catch (std::exception &e) {
@@ -42,11 +42,11 @@ int main(void)
         }
         
         try {
+            printHeader("Sign Shrubbery with Boss (Should succeed)");
             Bureaucrat boss("Boss", 1);
             Bureaucrat intern("Intern", 148);
             ShrubberyCreationForm shrub("garden");
             
-            printHeader("Sign Shrubbery with Boss (Should succeed)");
             shrub.beSigned(boss);
             std::cout << shrub << std::endl;
 
@@ -65,24 +65,23 @@ int main(void)
         printHeader("RobotomyRequestForm Tests");
         
         try {
+            printHeader("Sign Robotomy with MidLevel (Should succeed sign grade 72)");
             Bureaucrat boss("Boss", 1);
             Bureaucrat midLevel("MidLevel", 50);
             RobotomyRequestForm robot("Bender");
 
             std::cout << robot << std::endl;
 
-            printHeader("Sign Robotomy with MidLevel (Should fail sign grade 72)");
-            // wait, 50 IS HIGHER than 72 (smaller number)
-            // sign 72, exec 45
-            // midLevel 50 should succeed to sign, but fail to execute
+            robot.beSigned(midLevel);
+            std::cout << robot << std::endl;
         } catch (std::exception &e) {}
 
         try {
+            printHeader("Sign Robotomy with LowLevel (Should fail sign grade 72)");
             Bureaucrat boss("Boss", 1);
             Bureaucrat lowLevel("LowLevel", 100);
             RobotomyRequestForm robot("R2D2");
 
-            printHeader("Sign Robotomy with LowLevel (Should fail sign grade 72)");
             robot.beSigned(lowLevel);
         } catch (std::exception &e) {
             std::cerr << "Expected failure: " << e.what() << std::endl;
@@ -113,13 +112,13 @@ int main(void)
         printHeader("PresidentialPardonForm Tests");
         
         try {
+            printHeader("Sign Pardon with Assistant (Should succeed sign grade 25)");
             Bureaucrat boss("Boss", 1);
             Bureaucrat assistant("Assistant", 20);
             PresidentialPardonForm pardon("Arthur Dent");
 
             std::cout << pardon << std::endl;
 
-            printHeader("Sign Pardon with Assistant (Should succeed sign grade 25)");
             assistant.signForm(pardon);
 
             printHeader("Execute Pardon with Assistant (Should fail exec grade 5)");
