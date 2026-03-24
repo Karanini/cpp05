@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:34:52 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 12:51:16 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 13:04:50 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int main(void)
         std::cout << shrub << std::endl;
 
         printHeader("Execute Shrubbery with Boss (Should succeed)");
-        shrub.execute(boss);
+        boss.executeForm(shrub);
 
         printHeader("Execute Shrubbery with Intern (Should fail exec grade 137)");
-        shrub.execute(intern);
+        intern.executeForm(shrub);
 
     } catch (std::exception &e) {
         std::cerr << "Exception catch in main: " << e.what() << std::endl;
@@ -63,7 +63,7 @@ int main(void)
         ShrubberyCreationForm shrub2("parking");
         
         printHeader("Execute unsigned form (Should fail)");
-        shrub2.execute(boss);
+        boss.executeForm(shrub2);
     } catch (std::exception &e) {
         std::cerr << "Expected Exception catch in main: " << e.what() << std::endl;
     }
