@@ -6,7 +6,7 @@
 #    By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/16 14:08:56 by bkaras-g          #+#    #+#              #
-#    Updated: 2026/03/23 14:22:33 by michel_32        ###   ########.fr        #
+#    Updated: 2026/03/24 10:57:08 by michel_32        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ NAME = bureaucrat_signing_forms
 
 SRC = Bureaucrat.cpp \
 		AForm.cpp \
+		ShrubberyCreationForm.cpp \
 		main.cpp
 
 HEADERS = Bureaucrat.hpp \
+			ShrubberyCreationForm.hpp \
 			AForm.hpp
 
 RM = rm -f
