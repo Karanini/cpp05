@@ -6,34 +6,78 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 15:34:21 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 15:34:25 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 16:47:52 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include "../ex02/PresidentialPardonForm.hpp"
+#include "../ex02/RobotomyRequestForm.hpp"
+#include "../ex02/ShrubberyCreationForm.hpp"
 #include <iostream>
 
 Intern::Intern(void)
 {
-    std::cout << "Intern default constructor called" << std::endl;
+	std::cout << "Intern default constructor called" << std::endl;
 }
 
-Intern::Intern(const Intern& copy)
+Intern::Intern(const Intern &copy)
 {
-    std::cout << "Intern copy constructor called" << std::endl;
-    *this = copy;
+	std::cout << "Intern copy constructor called" << std::endl;
+	*this = copy;
 }
 
 Intern::~Intern(void)
 {
-    std::cout << "Intern destructor called" << std::endl;
+	std::cout << "Intern destructor called" << std::endl;
 }
 
-Intern& Intern::operator=(const Intern& copy)
+Intern &Intern::operator=(const Intern &copy)
 {
-    std::cout << "Intern assignment operator called" << std::endl;
-    if (this != &copy) {
-        // copy data members here
-    }
-    return (*this);
+	std::cout << "Intern assignment operator called" << std::endl;
+	(void)copy;
+	return (*this);
+}
+form_code	hashit(std::string const &name)
+{
+	if (name == "shrubbery creation")
+		return (eShrubbery);
+	if (name == "robotomy request")
+		return (eRobotomy);
+	if (name == "presidential pardon")
+		return (ePardon);
+    return (eUndefined);
+}
+
+AForm *Intern::makeForm(std::string name, std::string target)
+{
+	AForm	*form;
+
+	switch (hashit(name))
+	{
+        case eShrubbery:
+        {
+            form = new ShrubberyCreationForm(target);
+            std::cout << "Intern creates " << form->getName() << std::endl;
+            return (form);
+        }
+        case eRobotomy:
+        {
+            form = new RobotomyRequestForm(target);
+            std::cout << "Intern creates " << form->getName() << std::endl;
+            return (form);
+        }
+        case ePardon:
+        {
+            form = new PresidentialPardonForm(target);
+            std::cout << "Intern creates " << form->getName() << std::endl;
+            return (form);
+        }
+        case eUndefined:
+        {
+            std::cout << "Form name does not exist. Read the F*ck*ng 3200 pages bureaucracy manual it's not that complicated!" << std::endl;
+            return (NULL);
+        }
+	}
+    return (NULL);
 }

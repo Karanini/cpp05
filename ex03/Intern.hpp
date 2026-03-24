@@ -6,7 +6,7 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 15:34:31 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 15:34:34 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 16:45:02 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 #define INTERN_HPP
 
 #include <string>
+#include "../ex02/AForm.hpp"
+
+enum form_code
+{
+    eShrubbery,
+    eRobotomy,
+    ePardon,
+    eUndefined
+};
 
 class Intern {
 public:
@@ -30,6 +39,7 @@ public:
     // ---------- Getter and Setter Methods ------------
 
     // ---------- Member Methods -----------------------
+    AForm *makeForm(std::string name, std::string target);
 
 protected:
     // ---------- Protected Data Members ---------------------
@@ -37,5 +47,7 @@ protected:
 private:
     // ---------- Private Data members -------------------------
 };
+
+form_code hashit(std::string const &name);
 
 #endif // INTERN_HPP

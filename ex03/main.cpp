@@ -6,123 +6,27 @@
 /*   By: michel_32 <michel_32@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:34:52 by michel_32         #+#    #+#             */
-/*   Updated: 2026/03/24 15:25:37 by michel_32        ###   ########.fr       */
+/*   Updated: 2026/03/24 16:50:16 by michel_32        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "../ex02/Bureaucrat.hpp"
+#include "../ex02/AForm.hpp"
+#include "../ex02/ShrubberyCreationForm.hpp"
+#include "../ex02/RobotomyRequestForm.hpp"
+#include "../ex02/PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 
-void printHeader(std::string title)
-{
-    std::cout << "\n--- " << title << " ---" << std::endl;
-}
-
 int main(void)
-{    
-    try {
-        printHeader("Sign Shrubbery with Boss (Should succeed)");
-        Bureaucrat boss("Boss", 1);
-        Bureaucrat intern("Intern", 148);
-        ShrubberyCreationForm shrub("garden");
-        
-        shrub.beSigned(boss);
-        std::cout << shrub << std::endl;
-
-        printHeader("Execute Shrubbery with Boss (Should succeed)");
-        boss.executeForm(shrub);
-
-        printHeader("Execute Shrubbery with Intern (Should fail exec grade 137)");
-        intern.executeForm(shrub);
-
-    } catch (std::exception &e) {
-        std::cerr << "Exception catch in main: " << e.what() << std::endl;
-    }
-
-    {
-        printHeader("RobotomyRequestForm Tests");
-
-        Bureaucrat boss("Boss", 1);
-        Bureaucrat midLevel("MidLevel", 50);
-        RobotomyRequestForm robot("Wall-E");
-
-        printHeader("Sign Robotomy with MidLevel (Should succeed grade 72)");
-        midLevel.signForm(robot);
-
-        printHeader("Execute Robotomy with MidLevel (Should fail exec grade 45)");
-        midLevel.executeForm(robot);
-
-        printHeader("Execute Robotomy with Boss (Should succeed - 50% chance)");
-        boss.executeForm(robot);
-        boss.executeForm(robot);
-        boss.executeForm(robot);
-        boss.executeForm(robot);
-    }
-
-    {
-        printHeader("PresidentialPardonForm Tests");
-        printHeader("Sign Pardon with Assistant (Should succeed sign grade 25)");
-        Bureaucrat boss("Boss", 1);
-        Bureaucrat assistant("Assistant", 20);
-        PresidentialPardonForm pardon("Arthur Dent");
-
-        std::cout << pardon << std::endl;
-
-        assistant.signForm(pardon);
-
-        printHeader("Execute Pardon with Assistant (Should fail exec grade 5)");
-        assistant.executeForm(pardon);
-
-        printHeader("Execute Pardon with Boss (Should succeed sign grade 5)");
-        boss.executeForm(pardon);
-    }
-
-    printHeader("Execute unsigned robotomy (Should fail)");
-    Bureaucrat boss("Boss", 1);
-    RobotomyRequestForm robot2("Marvin");
-    boss.executeForm(robot2);
-
-    // {
-    //     printHeader("OCF (Orthodox Canonical Form) Tests");
-
-    //     Bureaucrat boss("Boss", 1);
-        
-    //     printHeader("ShrubberyCreationForm OCF");
-    //     ShrubberyCreationForm s1("target1");
-    //     s1.beSigned(boss);
-    //     ShrubberyCreationForm s2(s1); // Copy constructor
-    //     ShrubberyCreationForm s3;
-    //     s3 = s1; // Assignment operator
-
-    //     std::cout << "Original (s1): " << s1 << std::endl;
-    //     std::cout << "Copy (s2): " << s2 << std::endl;
-    //     std::cout << "Assigned (s3): " << s3 << std::endl;
-
-    //     printHeader("RobotomyRequestForm OCF");
-    //     RobotomyRequestForm r1("target2");
-    //     r1.beSigned(boss);
-    //     RobotomyRequestForm r2(r1);
-    //     RobotomyRequestForm r3;
-    //     r3 = r1;
-
-    //     std::cout << "Original (r1): " << r1 << std::endl;
-    //     std::cout << "Copy (r2): " << r2 << std::endl;
-    //     std::cout << "Assigned (r3): " << r3 << std::endl;
-
-    //     printHeader("PresidentialPardonForm OCF");
-    //     PresidentialPardonForm p1("target3");
-    //     p1.beSigned(boss);
-    //     PresidentialPardonForm p2(p1);
-    //     PresidentialPardonForm p3;
-    //     p3 = p1;
-
-    //     std::cout << "Original (p1): " << p1 << std::endl;
-    //     std::cout << "Copy (p2): " << p2 << std::endl;
-    //     std::cout << "Assigned (p3): " << p3 << std::endl;
-    // }
+{
+    Intern michael = Intern();
+    std::cout << "\n";
+    AForm *robot = michael.makeForm("robotomy request", "Pont_des_Arts");
+    std::cout << "\n";
+    AForm *perfectForm = michael.makeForm("perfect form", "Paradise");
+    std::cout << "\n";
+    delete robot;
+    (void)perfectForm;
     return (0);
 }
